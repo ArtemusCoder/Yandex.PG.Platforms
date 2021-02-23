@@ -12,18 +12,14 @@ class Hero(pygame.sprite.Sprite):
         self.rect.y = y - 10
 
     def update(self):
-        self.move = False
         if not pygame.sprite.spritecollideany(self, rectangle_sprite):
             self.rect = self.rect.move(0, 1)
-        else:
-            self.move = True
 
     def moving(self, side):
-        if self.move:
-            if side == 'L':
-                self.rect.x -= 10
-            else:
-                self.rect.x += 10
+        if side == 'L':
+            self.rect.x -= 10
+        else:
+            self.rect.x += 10
 
 
 class Rectangle(pygame.sprite.Sprite):
